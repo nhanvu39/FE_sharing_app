@@ -29,7 +29,13 @@
 		
 
 		<div class="bor8 m-b-20 how-pos4-parent">
-			<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="Link" placeholder="Link download" >			
+			<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="Link1" placeholder="Link download windown" >			
+		</div>
+		<div class="bor8 m-b-20 how-pos4-parent">
+			<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="Link2" placeholder="Link download Linux" >			
+		</div>
+		<div class="bor8 m-b-20 how-pos4-parent">
+			<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="Link3" placeholder="Link download MacOS" >			
 		</div>
 		
 		

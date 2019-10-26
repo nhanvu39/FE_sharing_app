@@ -2,8 +2,8 @@
     include 'layout_head.php';
 ?>
 <div class="container">
-	<div class="bread-crumb flex-w p-l-25">
-		&nbsp
+	<div style = "margin-top: 30px;" class="bread-crumb flex-w p-l-25">
+		
 	</div>
 </div>
 
@@ -23,7 +23,7 @@
 										<img src="images/browser_chrome.png" alt="IMG-PRODUCT">
 										
 										
-										</a>
+										
 										</div>
 										</div>
 							           
@@ -51,12 +51,17 @@
 					<!--  -->
 					
 									</div>
-									<!-- js-add-cart-detail -->
-									<button type="submit" onClick="window.open('http://fa.getpedia.net/data?q==cTO2IDMygjMyUjN5gzNwczM2wXM0YDO8VGel5Cc1RXZTVmbvxWYk5WY0NVZt9mcoN0LzIzLwEzL5EDMy8SZslmZvEGdhR2L')" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
-										Download
-									</button>
+									</span>
+									
+									
+									
+									<div class="btn-group btn-group-lg" style = "margin-top: 35px;">
+									<button type="button" class="btn flex-c-m stext-101 cl0  bg1 bor1 hov-btn1 p-lr-15 trans-04" onClick="window.open('http://fa.getpedia.net/data?q==cTO2IDMygjMyUjN5gzNwczM2wXM0YDO8VGel5Cc1RXZTVmbvxWYk5WY0NVZt9mcoN0LzIzLwEzL5EDMy8SZslmZvEGdhR2L')">Window</button>
+									<button type="button" class="btn flex-c-m stext-101 cl0  bg1 bor1 hov-btn1 p-lr-15 trans-04">Linux</button>
+									<button type="button" class="btn flex-c-m stext-101 cl0  bg1 bor1 hov-btn1 p-lr-15 trans-04">MacOS</button>
+									</div>
 								</div>
-							</form>
+							
 
 						</div>
 					</div>
@@ -81,9 +86,9 @@
 							<i class="fa fa-google-plus"></i>
 						</a>
 					</div>
-				</div>
-			</div>
-		</div>
+				
+			
+		
 </section>
 
 <?php
