@@ -6,6 +6,7 @@ include 'layout_head.php';
 		Blog
 	</h2>
 </section>
+<!-- Content page -->
 <section class="bg0 p-t-62 p-b-60">
 	<div class="container">
 		<div class="row">
@@ -13,12 +14,12 @@ include 'layout_head.php';
 				<div class="p-r-45 p-r-0-lg">
 					<!-- item blog -->
 					<div class="p-b-63">
-						<a href="blog-detail.php" class="hov-img0 how-pos5-parent">
-							<img src="images/sublime.png" alt="IMG-BLOG">
+						<a href="chrome-detail.php" class="hov-img0 how-pos5-parent">
+							<img src="images/browser/google-chrome-sign.jpg" alt="IMG-BLOG">
 
 							<div class="flex-col-c-m size-123 bg9 how-pos5">
 								<span class="ltext-107 cl2 txt-center">
-									21
+									27
 								</span>
 
 								<span class="stext-109 cl3 txt-center">
@@ -29,33 +30,24 @@ include 'layout_head.php';
 
 						<div class="p-t-32">
 							<h4 class="p-b-15">
-								<a href="blog-detail.php" class="ltext-108 cl2 hov-cl1 trans-04">
-									Hướng dẫn cài đặt trình soạn thảo code Sublime Text miễn phí
+								<a href="chrome-detail.php" class="ltext-108 cl2 hov-cl1 trans-04">
+									Chrome Browser
 								</a>
 							</h4>
 
 							<p class="stext-117 cl6">
-							Viết code là công việc mà tất cả các lập trình viên đều phải làm, không những thế mà còn đều đặn hơn cơm bữa nữa là đằng khác. Vì tính chất đặc thù của mỗi loại code nên chúng ta không thể sử dụng những công cụ soạn thảo văn bản thông thường như Microsoft Word, WordPad hay Notepad …
+								Chrome Browser provides a trusted, consistent browsing experience across devices, with built-in protections, centralized management, and enterprise-wide controls for IT admins.
 							</p>
 
 							<div class="flex-w flex-sb-m p-t-18">
 								<span class="flex-w flex-m stext-111 cl2 p-r-30 m-tb-10">
 									<span>
-										<span class="cl4">By</span> Kiên Nguyễn Blog
+										<span class="cl4">By</span> anonymous
 										<span class="cl12 m-l-4 m-r-6">|</span>
-									</span>
-
-									<span>
-										Tool Program
-										<span class="cl12 m-l-4 m-r-6">|</span>
-									</span>
-
-									<span>
-										8 Comments
 									</span>
 								</span>
 
-								<a href="blog-detail.php" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
+								<a href="chrome-detail.php" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
 									Read more
 
 									<i class="fa fa-long-arrow-right m-l-9"></i>
@@ -66,49 +58,41 @@ include 'layout_head.php';
 
 					<!-- item blog -->
 					<div class="p-b-63">
-						<a href="blog-detail.php" class="hov-img0 how-pos5-parent">
-							<img src="images/edge_chromium_story.jpg" alt="IMG-BLOG">
+						<a href="firefox-detail.php" class="hov-img0 how-pos5-parent">
+							<img src="images/browser/firefox.jpg" alt="IMG-BLOG">
 
 							<div class="flex-col-c-m size-123 bg9 how-pos5">
 								<span class="ltext-107 cl2 txt-center">
-									16
+									25
 								</span>
 
 								<span class="stext-109 cl3 txt-center">
-									Sep 2019
+									Oct 2019
 								</span>
 							</div>
 						</a>
 
 						<div class="p-t-32">
 							<h4 class="p-b-15">
-								<a href="blog-detail.php" class="ltext-108 cl2 hov-cl1 trans-04">
-								Tải trình duyệt web Microsoft Edge lõi Chromium (bản chuẩn)
+								<a href="firefox-detail.php" class="ltext-108 cl2 hov-cl1 trans-04">
+									Mozilla Firefox
 								</a>
 							</h4>
 
 							<p class="stext-117 cl6">
-							Vâng, cuối cùng thì Microsoft đã chính thức phát hành bản Insider cho trình duyệt web Microsoft Edge sử dụng lõi Chromium. Và bây giờ thì bạn đã có thể tải về để trải nghiệm thử. Nếu như bạn đã đăng ký chương trình Windows Insider thì bạn đã nhận được link tải về rồi đúng không. Mình mới cài đặt và …
+								Get the latest Firefox browser.
+								And start getting the respect you deserve with our family of privacy-first products.
 							</p>
 
 							<div class="flex-w flex-sb-m p-t-18">
 								<span class="flex-w flex-m stext-111 cl2 p-r-30 m-tb-10">
 									<span>
-										<span class="cl4">By</span> Kiên Nguyễn Blog
+										<span class="cl4">By</span> Mod
 										<span class="cl12 m-l-4 m-r-6">|</span>
-									</span>
-
-									<span>
-										Browser
-										<span class="cl12 m-l-4 m-r-6">|</span>
-									</span>
-
-									<span>
-										5 Comments
 									</span>
 								</span>
 
-								<a href="blog-detail.php" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
+								<a href="firefox-detail.php" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
 									Read more
 
 									<i class="fa fa-long-arrow-right m-l-9"></i>
@@ -119,12 +103,12 @@ include 'layout_head.php';
 
 					<!-- item blog -->
 					<div class="p-b-63">
-						<a href="blog-detail.php" class="hov-img0 how-pos5-parent">
-							<img src="images/kutools.jpg" alt="IMG-BLOG">
+						<a href="opera-detail.php" class="hov-img0 how-pos5-parent">
+							<img src="images/browser/opera.jpg" alt="IMG-BLOG">
 
 							<div class="flex-col-c-m size-123 bg9 how-pos5">
 								<span class="ltext-107 cl2 txt-center">
-									8
+									21
 								</span>
 
 								<span class="stext-109 cl3 txt-center">
@@ -135,33 +119,72 @@ include 'layout_head.php';
 
 						<div class="p-t-32">
 							<h4 class="p-b-15">
-								<a href="blog-detail.php" class="ltext-108 cl2 hov-cl1 trans-04">
-								Sử dụng 300 tính năng mạnh mẽ trên Excel với tiện ích Kutools
+								<a href="opera-detail.php" class="ltext-108 cl2 hov-cl1 trans-04">
+									Opera
 								</a>
 							</h4>
 
 							<p class="stext-117 cl6">
-							Nếu bạn chưa hài lòng với các công cụ xử lý, và các công thức hàm khá phức tạp trong Excel khi áp dụng vào việc thống kê, kế toán của mình thì việc sử dụng các tiện ích hỗ trợ như Kutools mà mình giới thiệu hôm nay sẽ rất cần thiết và hữu ích với bạn đó. Với …
+								Browse the way you want
+								Opera isn't just a browser. It's an awesome browser.
 							</p>
 
 							<div class="flex-w flex-sb-m p-t-18">
 								<span class="flex-w flex-m stext-111 cl2 p-r-30 m-tb-10">
 									<span>
-										<span class="cl4">By</span> Kiên Nguyễn Blog
+										<span class="cl4">By</span> anonymous
 										<span class="cl12 m-l-4 m-r-6">|</span>
 									</span>
 
-									<span>
-										Office
-										<span class="cl12 m-l-4 m-r-6">|</span>
-									</span>
-
-									<span>
-										2 Comments
-									</span>
 								</span>
 
-								<a href="blog-detail.php" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
+								<a href="opera-detail.php" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
+									Read more
+
+									<i class="fa fa-long-arrow-right m-l-9"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<!-- item blog -->
+					<div class="p-b-63">
+						<a href="skype-detail.php" class="hov-img0 how-pos5-parent">
+							<img src="images/browser/Skype1.jpg" alt="IMG-BLOG">
+
+							<div class="flex-col-c-m size-123 bg9 how-pos5">
+								<span class="ltext-107 cl2 txt-center">
+									13
+								</span>
+
+								<span class="stext-109 cl3 txt-center">
+									Aug 2019
+								</span>
+							</div>
+						</a>
+
+						<div class="p-t-32">
+							<h4 class="p-b-15">
+								<a href="skype-detail.php" class="ltext-108 cl2 hov-cl1 trans-04">
+									Skype
+								</a>
+							</h4>
+
+							<p class="stext-117 cl6">
+								Skype makes it easy to stay in touch
+								Talk. Chat. Collaborate.
+							</p>
+
+							<div class="flex-w flex-sb-m p-t-18">
+								<span class="flex-w flex-m stext-111 cl2 p-r-30 m-tb-10">
+									<span>
+										<span class="cl4">By</span> Admin
+										<span class="cl12 m-l-4 m-r-6">|</span>
+									</span>
+
+								</span>
+
+								<a href="skype-detail.php" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
 									Read more
 
 									<i class="fa fa-long-arrow-right m-l-9"></i>
@@ -175,14 +198,9 @@ include 'layout_head.php';
 						<a href="#" class="flex-c-m how-pagination1 trans-04 m-all-7 active-pagination1">
 							1
 						</a>
-
-						<a href="#" class="flex-c-m how-pagination1 trans-04 m-all-7">
-							2
-						</a>
 					</div>
 				</div>
 			</div>
-
 			<div class="col-md-4 col-lg-3 p-b-80">
 				<div class="side-menu">
 					<div class="p-t-55">
@@ -274,7 +292,7 @@ include 'layout_head.php';
 									</span>
 
 									<span>
-										[1]
+										[2]
 									</span>
 								</a>
 							</li>
