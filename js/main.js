@@ -168,7 +168,7 @@
     });
 
     /*==================================================================
-    [ Filter / Search product ]*/
+    */
     $('.js-show-filter').on('click',function(){
         $(this).toggleClass('show-filter');
         $('.panel-filter').slideToggle(400);
@@ -193,7 +193,7 @@
 
 
     /*==================================================================
-    [ Cart ]*/
+    */
     $('.js-show-cart').on('click',function(){
         $('.js-panel-cart').addClass('show-header-cart');
     });
@@ -203,7 +203,7 @@
     });
 
     /*==================================================================
-    [ Cart ]*/
+    */
     $('.js-show-sidebar').on('click',function(){
         $('.js-sidebar').addClass('show-sidebar');
     });
@@ -241,7 +241,7 @@
         //continue
     });
     /*==================================================================
-    [ Rating ]*/
+    */
     $('.wrap-rating').each(function(){
         var item = $(this).find('.item-rating');
         var rated = -1;
