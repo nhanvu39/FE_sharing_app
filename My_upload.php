@@ -45,28 +45,6 @@ include 'layout_head.php';
 				</div>
 			</div>
 
-<<<<<<< HEAD
-
-
-		</div>
-		<div class="row isotope-grid">
-			<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item browser">
-
-				<div class="block2">
-					<div class="block2-pic hov-img0">
-						<a href="app.php">
-							<img src="images/browser_chrome.png" alt="IMG-PRODUCT">
-						</a>
-					</div>
-
-					<div class="block2-txt flex-w flex-t p-t-14">
-						<div class="block2-txt-child1 flex-col-l ">
-
-							<button type="button" class="btn btn-warning"> Delete</button>
-							<span class="stext-105 cl3">
-
-							</span>
-=======
 				<div class="flex-w flex-c-m m-tb-10">
 					
                         
@@ -113,7 +91,6 @@ include 'layout_head.php';
 						
 						</div>
 						</div>
->>>>>>> master
 						</div>
 
 

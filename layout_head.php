@@ -1,4 +1,5 @@
-
+<?php session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,14 +49,28 @@
 						<!-- Free shipping for standard order over $50. <a href="#">Click here</a> -->
 					</div>
 
-					<div class="right-top-bar flex-w h-full">
+					
 				
+					<div class="right-top-bar flex-w h-full">
+						<?php if (isset($_SESSION["id"])){
+							echo '<a href="profile.php" class="flex-c-m trans-04 p-lr-25">';
+							echo $_SESSION["userName"];
+							echo '</a>';
+
+							echo '<a href="logout.php" class="flex-c-m trans-04 p-lr-25">';
+							echo 'Logout';
+							echo '</a>';
+						} else {
+						?>
 						<a href="register.php" class="flex-c-m trans-04 p-lr-25">
 							Register
 						</a>
 						<a href="login.php" class="flex-c-m trans-04 p-lr-25">
 							Login
 						</a>
+						<?php
+							}
+						?>
 						
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
 							EN
