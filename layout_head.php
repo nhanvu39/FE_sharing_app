@@ -97,7 +97,10 @@
 							<li>
 								<a href="show_app.php" id="shopp">Explore</a>
 							</li>
-
+							<?php if (isset($_SESSION["userName"])){
+								echo '<li><a href="my_upload.php" id="shopp">My Upload</a></li>';
+							}
+							?>
 							
 
 							<li>

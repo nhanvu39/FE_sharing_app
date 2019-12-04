@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2019 at 10:46 AM
+-- Generation Time: Dec 04, 2019 at 01:26 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -32,7 +32,8 @@ CREATE TABLE `link` (
   `id` int(11) NOT NULL,
   `link` varchar(1000) NOT NULL,
   `kind` varchar(50) NOT NULL,
-  `idSoftware` int(11) NOT NULL
+  `idSoftware` int(11) NOT NULL,
+  `version` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
