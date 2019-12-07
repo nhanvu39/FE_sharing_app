@@ -1,10 +1,44 @@
 <?php
-    include ("layout_head.php");
-	?>
+	include ("layout_head.php");
+	include_once "config/database.php";
+	$database = new Database();
+    $conn = $database->getConnection();
+	if (isset($_POST["login"])){
+		
+		$userName = $_POST["userName"];
+		$password = $_POST["password"];
+		
+		$query  =  "SELECT id, firstName, lastName, loc  FROM users WHERE userName = ? AND  password = ? ";
+		$password = MD5($password);
+		$array = array($userName, $password);
+		
+		$stmt = $conn->prepare($query);
+		
+		$stmt->execute($array);
+		
+		$row = $stmt->fetch(PDO::FETCH_ASSOC);
+		
+		if ($row != NULL){
+			if ($row["loc"]){
+				$statusMsgType = 'alert alert-danger';
+				$statusMsg = 'Account is locked! Please contact "admin@gmail.com" to open account.';
+			}
+			else {
+				$_SESSION["userName"] = $userName;
+				$_SESSION["id"] = $row["id"];
+				echo '<script>window.location = "index.php"</script>';
+			}
+		}
+		else{
+			$statusMsgType = 'alert alert-danger';
+            $statusMsg = 'The username or password are incorrect!'; 
+		}
+	}
+?>
 
 
 <!-- Title page -->
-<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-01.jpg');">
+<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/123.jpg');">
 	<h2 class="ltext-105 cl0 txt-center">
 		Login
 	</h2>
@@ -18,6 +52,9 @@
 		<h3 class="mtext-105 cl2 txt-center p-b-30 cl11">
 			Login Panel
 		</h3>
+		<?php 
+			echo !empty($statusMsg)?'<p class="'.$statusMsgType.'">'.$statusMsg.'</p>':''; 
+		?>
 		<div class="bor8 m-b-20 how-pos4-parent">
 			<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="userName" placeholder="User Name">
 		</div>
