@@ -2,10 +2,10 @@
 -- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 04, 2019 at 01:26 PM
+-- Host: localhost
+-- Generation Time: Dec 08, 2019 at 06:40 AM
 -- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- PHP Version: 7.1.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -48,8 +48,19 @@ CREATE TABLE `software` (
   `description` varchar(1000) NOT NULL,
   `kind` varchar(50) NOT NULL,
   `loc` tinyint(1) NOT NULL,
-  `image` varchar(1000) NOT NULL
+  `image` varchar(1000) NOT NULL,
+  `idUser` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `software`
+--
+
+INSERT INTO `software` (`id`, `name`, `description`, `kind`, `loc`, `image`, `idUser`) VALUES
+(1, 'Chrome', '', 'browser', 0, 'browser_chrome.png', 2),
+(2, 'Zalo', '', 'social', 0, 'zalo.jpg', NULL),
+(3, 'Word', '', 'office', 0, 'office_word.png', NULL),
+(4, 'Visual Studio Code', '', 'program', 0, 'Visual.png', NULL);
 
 -- --------------------------------------------------------
 
@@ -90,7 +101,8 @@ ALTER TABLE `link`
 -- Indexes for table `software`
 --
 ALTER TABLE `software`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idUser` (`idUser`);
 
 --
 -- Indexes for table `users`
@@ -112,13 +124,23 @@ ALTER TABLE `link`
 -- AUTO_INCREMENT for table `software`
 --
 ALTER TABLE `software`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `software`
+--
+ALTER TABLE `software`
+  ADD CONSTRAINT `software_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
