@@ -44,27 +44,40 @@
 			//get database connection
 			$database = new Database();
 			$conn = $database->getConnection();
-			$query  =  "INSERT INTO `users`( `userName`, `password`, `firstName`, `lastName`, `email`, `loc`) VALUES  (?,?,?,?,?,?) ";
-			$password = MD5($password);
-			$array = array( $userName, $password, $firstName, $lastName, $email,false);
-			
-			$stmt = $conn->prepare($query);
-			
-			$stmt->execute($array);
-			if ($stmt){
-				$errorCode = $stmt->errorCode();
-				if ($errorCode != 00000) {
+			$qr = "SELECT `userName` FROM `users` WHERE userName = ? OR email = ?";
+			// echo $email;
+			$arr = array($userName,$email);
+			$st = $conn->prepare($qr);
+			$st->execute($arr);
+			$row = $st->fetch(PDO::FETCH_ASSOC);
+
+			if ($row != NULL){
+				$statusMsgType = 'alert alert-danger';
+				$statusMsg = 'Username or email  already exists!';
+			}
+			else{
+				$query  =  "INSERT INTO `users`( `userName`, `password`, `firstName`, `lastName`, `email`, `loc`, `isAdmin` ) VALUES  (?,?,?,?,?,?,?) ";
+				$password = MD5($password);
+				$array = array( $userName, $password, $firstName, $lastName, $email,false,false);
+				
+				$stmt = $conn->prepare($query);
+				
+				$stmt->execute($array);
+				if ($stmt){
+					$errorCode = $stmt->errorCode();
+					if ($errorCode != 00000) {
+						$statusMsgType = 'alert alert-danger';
+						$statusMsg = '[Database] Something went wrong.';
+					}
+					else{
+						$statusMsgType = 'alert alert-success';
+						$statusMsg = 'Congratulation. Register successful. Click <a href="login.php">here</a> to login';
+					}
+				}
+				else{
 					$statusMsgType = 'alert alert-danger';
 					$statusMsg = '[Database] Something went wrong.';
 				}
-				else{
-					$statusMsgType = 'alert alert-success';
-					$statusMsg = 'Congratulation. Register successful. Click <a href="login.php">here</a> to login';
-				}
-			}
-			else{
-				$statusMsgType = 'alert alert-danger';
-				$statusMsg = '[Database] Something went wrong.';
 			}
 		}
 	}
