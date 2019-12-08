@@ -1,4 +1,27 @@
 <?php
+include_once "config/database.php";
+include_once "object/software.php";
+include_once "object/link.php";
+
+// get database connection
+$database = new Database();
+$db = $database->getConnection();
+
+// initialize objects
+$software = new Software($db);
+$link = new Link($db);
+
+// get ID of the product to be edited
+$id_product = isset($_GET['id']) ? $_GET['id'] : die('ERROR: missing ID.');
+
+// set the id as product id property
+$software->id = $id_product;
+
+// to read single record product
+$software->readOne();
+?>
+
+<?php
 include 'layout_head.php';
 ?>
 <div class="container">
@@ -17,17 +40,40 @@ include 'layout_head.php';
 						<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
 
 						<div class="slick3 gallery-lb">
+							<?php
+							$stmt = $link->getDistinctVersion($id_product);
+							echo '<div class="item-slick3" data-thumb="images/' . $software->image . '">';
+							echo '<div class="wrap-pic-w pos-relative">';
+							echo '<h2>Choose your version</h2>';
+							echo '<div class="wrapper">';
+							echo '<table class="table table-bordered cart_summary">';
+							echo '<tr>';
+							echo '<th>Version</th>';
+							echo '<th></th>';
+							echo '<th></th>';
+							echo '<th></th>';
+							echo '</tr>';
+							
+														
+							while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+								echo '<tr>';
+								echo '<td><a href="download.php?version=' . $row["version"] . '">' . $row["version"] . '</a></td>';
+								echo '<td>;
+								echo '<div class="btn-group btn-group-lg" style="margin-top: 35px;">';
+					echo '<button type="button" class="btn flex-c-m stext-101 cl0  bg1 bor1 hov-btn1 p-lr-15 trans-04" onClick="window.open()">Window</button>';
+					
+				 echo '</div>';'
+								echo '</td>';
+								echo '<td></td>';
+								echo '<td></td>';
+								echo '</tr>';
+							}
+							echo '</table>';
+							echo '</div>';
+							echo '</div>';
+							echo '</div>';
 
-							<div class="item-slick3" data-thumb="images/browser_chrome.png">
-								<div class="wrap-pic-w pos-relative">
-									<img src="images/browser_chrome.png" alt="IMG-PRODUCT">
-
-
-
-								</div>
-							</div>
-
-
+							?>
 
 						</div>
 					</div>

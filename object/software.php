@@ -87,7 +87,7 @@ class Software{
     
         // query to select single record
         $query = "SELECT
-                    name, description
+                    name, image, description
                 FROM
                     " . $this->table_name . "
                 WHERE
@@ -112,6 +112,7 @@ class Software{
     
         // assign retrieved row value to object properties
         $this->name = $row['name'];
+        $this->image = $row['image'];
         $this->description = $row['description'];
     }
 
