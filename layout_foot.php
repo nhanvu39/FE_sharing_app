@@ -133,6 +133,7 @@
 	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 	<!--===============================================================================================-->
 	<script src="vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
 	<script>
 		$(".js-select2").each(function() { //when select size
 			$(this).select2({
@@ -168,6 +169,14 @@
 	</script>
 	<!--===============================================================================================-->
 	<script src="vendor/isotope/isotope.pkgd.min.js"></script>
+	<!-- fix size image for My_Upload -->
+	<script>
+        var cw = $('.icon_app').width();
+        $('.icon_app').css({
+            'height': cw + 'px'
+        });
+	</script>
+	<!-- fix size image for My_Upload -->
 	<!--===============================================================================================-->
 	<script src="vendor/sweetalert/sweetalert.min.js"></script>
 	<script>
@@ -207,6 +216,22 @@
 				swal(nameProduct, "is added to cart !", "success"); //alert success jQuery
 			});
 		});
+
+		// Alert comfirm delete
+		function Confirmdelete(){
+			swal({
+				title: "Are you sure?",
+				text: "Your will not be able to recover this imaginary file!",
+				type: "warning",
+				showCancelButton: true,
+				confirmButtonClass: "btn-danger",
+				confirmButtonText: "Yes, delete it!",
+				closeOnConfirm: false
+				},
+				function(){
+				swal("Deleted!", "Your imaginary file has been deleted.", "success");
+				});
+			}
 	</script>
 	<!--===============================================================================================-->
 	<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>

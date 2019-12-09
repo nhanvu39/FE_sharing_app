@@ -1,7 +1,9 @@
 <?php
 	include "layout_head.php";
 	include_once "config/database.php";
-
+	if(isset($_SESSION["id"]) && !empty($_SESSION["id"])) {
+		echo '<script>window.location = "index.php"</script>';
+	}
 	$flag = true;
 	if (isset($_POST["submit"])){
 		$firstName = $_POST["firstName"];
