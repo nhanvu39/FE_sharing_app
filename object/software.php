@@ -25,16 +25,11 @@ class Software{
                     id, name, description, kind, loc, image
                 FROM
                     ".$this->table_name ."
-                LIMIT
-                    ?, ?";
+                ";
         
         //prepare query statement
         $stmt = $this->conn->prepare($query);
-
-        //blind limti clause variables
-        $stmt->bindParam(1, $from_record_num, PDO::PARAM_INT);
-        $stmt->bindParam(2, $records_per_page, PDO::PARAM_INT);
-
+        
         //execute query
         $stmt->execute();
         
@@ -87,7 +82,7 @@ class Software{
     
         // query to select single record
         $query = "SELECT
-                    name, description
+                    name, image, description
                 FROM
                     " . $this->table_name . "
                 WHERE
@@ -112,6 +107,7 @@ class Software{
     
         // assign retrieved row value to object properties
         $this->name = $row['name'];
+        $this->image = $row['image'];
         $this->description = $row['description'];
     }
 

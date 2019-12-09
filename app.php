@@ -1,4 +1,27 @@
 <?php
+include_once "config/database.php";
+include_once "object/software.php";
+include_once "object/link.php";
+
+// get database connection
+$database = new Database();
+$db = $database->getConnection();
+
+// initialize objects
+$software = new Software($db);
+$link = new Link($db);
+
+// get ID of the product to be edited
+$id_product = isset($_GET['id']) ? $_GET['id'] : die('ERROR: missing ID.');
+
+// set the id as product id property
+$software->id = $id_product;
+
+// to read single record product
+$software->readOne();
+?>
+
+<?php
 include 'layout_head.php';
 ?>
 <div class="container">
@@ -10,56 +33,98 @@ include 'layout_head.php';
 <section class="sec-product-detail bg0 p-t-65 p-b-60">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6 col-lg-7 p-b-30">
+			<div class="col-md-7 col-lg-8 p-b-30">
 				<div class="p-l-25 p-r-30 p-lr-0-lg">
 					<div class="wrap-slick3 flex-sb flex-w">
 						<div class="wrap-slick3-dots"></div>
 						<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
 
 						<div class="slick3 gallery-lb">
+							<?php
+							$stmt = $link->getDistinctVersion($id_product);
+							echo '<div class="item-slick3" data-thumb="images/' . $software->image . '">';
+							echo '<div class="wrap-pic-w pos-relative">';
+							echo '<h2>Choose your version</h2>';
+							echo '<br>';
+							echo '<div class="wrapper">';
+							echo '<table class="table table-bordered cart_summary">';
+							echo '<tr>';
+							echo '<th>Version</th>';
+							echo '<th></th>';
+							echo '<th></th>';
+							echo '<th></th>';
+							echo '</tr>';
 
-							<div class="item-slick3" data-thumb="images/browser_chrome.png">
-								<div class="wrap-pic-w pos-relative">
-									<img src="images/browser_chrome.png" alt="IMG-PRODUCT">
+							// Show version
+							while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+								echo '<tr>';
+								echo '<td>' . $row["version"] . '</td>';
+								// Show button (link)
+								$windows = new Link($db);
+								$mac = new Link($db);
+								$linux = new Link($db);
+								$windows->getLinkDownload($row["version"], 'windows');
+								$mac->getLinkDownload($row["version"], 'mac');
+								$linux->getLinkDownload($row["version"], 'linux');
+
+								echo '<td>';
+								echo '<div class="btn-group btn-group-lg" style="margin-top: 35px;">';
+								echo '<button type="button" class="btn flex-c-m stext-101 cl0  bg1 bor1 hov-btn1 p-lr-15 trans-04" onClick="window.open(\'' . $windows->linkDownload . '\')">Window</button>';
+								echo '</div>';
+								echo '</td>';
+
+								echo '<td>';
+								echo '<div class="btn-group btn-group-lg" style="margin-top: 35px;">';
+								echo '<button type="button" class="btn flex-c-m stext-101 cl0  bg1 bor1 hov-btn1 p-lr-15 trans-04" onClick="window.open(\'' . $mac->linkDownload . '\')">Mac</button>';
+								echo '</div>';
+								echo '</td>';
+
+								echo '<td>';
+								echo '<div class="btn-group btn-group-lg" style="margin-top: 35px;">';
+								echo '<button type="button" class="btn flex-c-m stext-101 cl0  bg1 bor1 hov-btn1 p-lr-15 trans-04" onClick="window.open(\'' . $linux->linkDownload . '\')">Linux</button>';
+								echo '</div>';
+								echo '</td>';
+							}
 
 
 
-								</div>
-							</div>
+							echo '</tr>';
 
 
+							echo '</table>';
+							echo '</div>';
+							echo '</div>';
+							echo '</div>';
+
+							?>
 
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<div class="col-md-6 col-lg-5 p-b-30">
+			<div class="col-md-5 col-lg-4 p-b-30">
 				<div class="p-r-50 p-t-5 p-lr-0-lg">
 					<h4 class="mtext-105 cl2 js-name-detail p-b-14">
-						Chrome
+						<?php
+						echo $software->name;
+						?>
 					</h4>
 
 					<span class="mtext-106 cl2">
 
 					</span>
 
-					<p class="stext-102 cl3 p-t-23">
-						Description
+					<p class="text-decoration">
+					<?php
+						echo $software->description;
+						?>
 					</p>
 
 					<!--  -->
 
 				</div>
 				</span>
-
-
-
-				<div class="btn-group btn-group-lg" style="margin-top: 35px;">
-					<button type="button" class="btn flex-c-m stext-101 cl0  bg1 bor1 hov-btn1 p-lr-15 trans-04" onClick="window.open('http://fa.getpedia.net/data?q==cTO2IDMygjMyUjN5gzNwczM2wXM0YDO8VGel5Cc1RXZTVmbvxWYk5WY0NVZt9mcoN0LzIzLwEzL5EDMy8SZslmZvEGdhR2L')">Window</button>
-					<button type="button" class="btn flex-c-m stext-101 cl0  bg1 bor1 hov-btn1 p-lr-15 trans-04">Linux</button>
-					<button type="button" class="btn flex-c-m stext-101 cl0  bg1 bor1 hov-btn1 p-lr-15 trans-04">MacOS</button>
-				</div>
 			</div>
 
 
