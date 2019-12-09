@@ -78,7 +78,7 @@ class Link
         return $rows[0];
     }
 
-    //used for paging products
+    //used for listing version
     public function getDistinctVersion($idSoftware)
     {
         //query to count all products records
@@ -90,6 +90,22 @@ class Link
         $stmt->execute();
 
         return $stmt;
+    }
+
+    //used for listing downloadLink
+    public function getLinkDownload($version, $kind)
+    {
+        //query to count all products records
+        $query = "SELECT linkDownload from link where version = '" . $version . "' and kind = '" . $kind . "' ";
+        //prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        //execute query 
+        $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $this->linkDownload = $row["linkDownload"];
     }
 
     // used when filling up the update product form
