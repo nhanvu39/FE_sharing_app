@@ -4,10 +4,8 @@
 	$database = new Database();
     $conn = $database->getConnection();
 	if (isset($_POST["login"])){
-		
 		$userName = $_POST["userName"];
 		$password = $_POST["password"];
-		
 		$query  =  "SELECT id, firstName, lastName, loc  FROM users WHERE userName = ? AND  password = ? ";
 		$password = MD5($password);
 		$array = array($userName, $password);
@@ -17,7 +15,6 @@
 		$stmt->execute($array);
 		
 		$row = $stmt->fetch(PDO::FETCH_ASSOC);
-		
 		if ($row != NULL){
 			if ($row["loc"]){
 				$statusMsgType = 'alert alert-danger';

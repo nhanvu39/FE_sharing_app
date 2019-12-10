@@ -10,6 +10,7 @@ class Software{
     public $kind;
     public $loc;
     public $image;
+    public $Ltype;
     // public $timestamp;
 
     //constructor
@@ -25,11 +26,16 @@ class Software{
                     id, name, description, kind, loc, image
                 FROM
                     ".$this->table_name ."
-                ";
+                LIMIT
+                    ?, ?";
         
         //prepare query statement
         $stmt = $this->conn->prepare($query);
-        
+
+        //blind limti clause variables
+        $stmt->bindParam(1, $from_record_num, PDO::PARAM_INT);
+        $stmt->bindParam(2, $records_per_page, PDO::PARAM_INT);
+
         //execute query
         $stmt->execute();
         
@@ -127,6 +133,15 @@ class Software{
         $stmt->execute($ids);
     
         // return values from database
+        return $stmt;
+    }
+
+    public function readfollowIdUser($id, $number){
+        $query = "SELECT * FROM " . $this->table_name . " WHERE idUser=:id LIMIT :number" ;
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindValue(':id', (int) $id); 
+        $stmt->bindValue(':number', (int) $number, PDO::PARAM_INT);
+        $stmt->execute();
         return $stmt;
     }
 }

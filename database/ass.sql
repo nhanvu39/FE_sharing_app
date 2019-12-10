@@ -27,6 +27,9 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `link`
 --
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ass /*!40100 DEFAULT CHARACTER SET latin1 */;
+
+USE ass;
 
 CREATE TABLE `link` (
   `id` int(11) NOT NULL,
