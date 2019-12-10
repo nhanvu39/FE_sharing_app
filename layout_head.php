@@ -91,28 +91,28 @@
 					<div class="menu-desktop">
 						<ul class="main-menu">
 							<li>
-								<a href="index.php"  id="homee" >Home</a>
+								<a href="index.php"  id="homee" ><b>Home</b></a>
 							</li>
 
 							<li>
-								<a href="show_app.php" id="shopp">Explore</a>
+								<a href="show_app.php" id="shopp"><b>Explore</b></a>
 							</li>
 							<?php if (isset($_SESSION["userName"])){
-								echo '<li><a href="My_upload.php" id="shopp">My Upload</a></li>';
+								echo '<li><a href="My_upload.php" id="shopp"><b>My Upload</b></a></li>';
 							}
 							?>
 							
 
 							<li>
-								<a href="blog.php" id="blogg">Blog</a>
+								<a href="blog.php" id="blogg"><b>Blog</b></a>
 							</li>
 
 							<li>
-								<a href="about.php" id="aboutt">About</a>
+								<a href="about.php" id="aboutt"><b>About</b></a>
 							</li>
 
 							<li>
-								<a href="contact.php" id="contactt">Contact</a>
+								<a href="contact.php" id="contactt"><b>Contact</b></a>
 							</li>
 						</ul>
 					</div>	
