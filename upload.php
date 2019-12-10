@@ -14,7 +14,7 @@
 
 		$Category = $_POST["Category"];
 		if(!$check_error){
-			if($Category!= "Business" and  $Category != "Communications" and $Category!= "Desktop" and $Category != "Education" and $Category!= "Games" and $Category!="Graphics" and $Category!= "Internet" and $Category != "Life" and $Category!= "Media" and $Category!="Utilities" and $Category != "Security"){
+			if($Category!= "Media" and  $Category != "Business" and $Category!= "Education" and $Category != "Games" and $Category!= "Graphics" and $Category!="Internet" and $Category!= "Social" and $Category != "Utilities" and $Category != "Security"){
 				$statusMsgType = 'alert alert-danger';
 				$statusMsg = 'Please select Category from options';
 				$check_error = true;
@@ -103,7 +103,7 @@
 				$errorCode = $stmt->errorCode();
 				if ($errorCode != 00000) {
 					$statusMsgType = 'alert alert-danger';
-					$statusMsg = '[Database] Something went wrong.'.$Description;
+					$statusMsg = '[Database] Something went wrong.';
 				}
 				else{
 					$idSoftware = $conn->lastInsertId();
@@ -115,7 +115,7 @@
 						$errorCode = $stmt->errorCode();
 						if ($errorCode != 00000) {
 							$statusMsgType = 'alert alert-danger';
-							$statusMsg = '[Database] Something went wrong. 2';
+							$statusMsg = '[Database] Something went wrong.';
 						}
 						else{
 							$statusMsgType = 'alert alert-success';
@@ -124,13 +124,13 @@
 					}
 					else{
 						$statusMsgType = 'alert alert-danger';
-						$statusMsg = '[Database] Something went wrong.3';
+						$statusMsg = '[Database] Something went wrong.';
 					}
 				}
 			}
 			else{
 				$statusMsgType = 'alert alert-danger';
-				$statusMsg = '[Database] Something went wrong.4';
+				$statusMsg = '[Database] Something went wrong.';
 			}
 		}
 	}
@@ -171,10 +171,10 @@
 			</div>
 			
 			<div class="bor8 m-b-20 how-pos4-parent">
-				<div class="size-116 p-l-62 p-r-30" style="margin: 0 0;">
+				<div class="size-116 p-l-62 p-r-30" style="margin: 0 0;height:fit-content">
 						<div style="float: left; margin: 0 auto;">
 							<label style="float: left;">Category:</label>
-							<input list="browsers" name="Category" style="color: #000; float: right; padding-left: 5px" required>
+							<input list="browsers" name="Category" style="color: #000; float: right; padding-left: 5px; overflow: hidden;" required>
 							<datalist id="browsers">
 								<option value="Media">
 								<option value="Business">
@@ -190,7 +190,7 @@
 						</div>				
 						<div style="float: left; margin: 0 auto;">
 							<label style="float: left; ">License Type:</label>
-							<input list="Ltype" name="Ltype"  style="color: #000; float: right; padding-left: 5px" required>
+							<input list="Ltype" name="Ltype"  style="color: #000; float: right; padding-left: 5px; overflow: hidden;" required>
 							<datalist id="Ltype">
 								<option value="Adware">
 								<option value="Commercial">
@@ -212,8 +212,8 @@
 			<div class="bor8 m-b-20 how-pos4-parent">
 				<p class="stext-111 cl2 plh3 p-l-62 p-r-30">Select icon for App:</p>
 				<div class="size-116 p-l-62 p-r-30">
-					<div style="float: left"><input type='file' name= "file" accept="image/*" onchange="readURL(this);" required/></div>
-					<div style="float: right"><img id="blah" src="http://placehold.it/50" alt="your icon" style="margin-right:20%; background:#2d2d2d; max-width:50px;"/></div>
+					<div style="float: left; width: 90%;"><input type='file' style="overflow: hidden;" name= "file" accept="image/*" onchange="readURL(this);" required/></div>
+					<div style="float: right; width: 10%;"><img id="blah" src="http://placehold.it/50" alt="your icon" style="margin-right:20%; background:#2d2d2d; max-width:50px;"/></div>
 					<div style="clear: bold"></div>
 				</div>	
 			</div>

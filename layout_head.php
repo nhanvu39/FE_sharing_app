@@ -33,8 +33,6 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/sweetalert/sweetalert.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
@@ -100,7 +98,7 @@
 								<a href="show_app.php" id="shopp">Explore</a>
 							</li>
 							<?php if (isset($_SESSION["userName"])){
-								echo '<li><a href="my_upload.php" id="shopp">My Upload</a></li>';
+								echo '<li><a href="My_upload.php" id="shopp">My Upload</a></li>';
 							}
 							?>
 							

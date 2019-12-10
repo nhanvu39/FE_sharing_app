@@ -135,10 +135,12 @@ class Software{
         return $stmt;
     }
 
-    public function readfollowIdUser($id){
-        $query = "SELECT * FROM " . $this->table_name . " WHERE idUser=?";
+    public function readfollowIdUser($id, $number){
+        $query = "SELECT * FROM " . $this->table_name . " WHERE idUser=:id LIMIT :number" ;
         $stmt = $this->conn->prepare($query);
-        $stmt->execute([$id]);
+        $stmt->bindValue(':id', (int) $id); 
+        $stmt->bindValue(':number', (int) $number, PDO::PARAM_INT);
+        $stmt->execute();
         return $stmt;
     }
 }

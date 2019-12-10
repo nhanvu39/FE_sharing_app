@@ -9,7 +9,12 @@ $dbs = new Database();
 $db = $dbs->getConnection();
 
 $software = new Software($db);
-$stmt = $software->readfollowIdUser($_SESSION["id"]);
+$page = isset($_REQUEST['page']) ? $_REQUEST['page'] : 1; //page is current page, if there's nothing set, default is 1
+$records_per_page = 4; //set records or row of data per page
+$record_num = $records_per_page * $page; //calculate for the query LIMIT clause
+
+//read all products in the database
+$stmt = $software->readfollowIdUser($_SESSION["id"],$record_num);
 ?>
 <div class="bg0 m-t-23 p-b-140 p-all-50">
     <div class="container">
@@ -130,6 +135,7 @@ $stmt = $software->readfollowIdUser($_SESSION["id"]);
                         $image = $row["image"];
                         $name = $row["name"];
                         $id = $row["id"];
+                        // $ltype = $row["Ltype"];
                         echo '<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item '.$kind.'">
                             <div class="block2">
                                 <div class="block2-pic hov-img0">
@@ -143,8 +149,8 @@ $stmt = $software->readfollowIdUser($_SESSION["id"]);
                                 <div class="block2-txt flex-w flex-t p-t-14">
                                     <div class="block2-txt-child1 flex-col-l">
                                         <div style="display: flex; flex-wrap: wrap; justify-content: space-between; width: 100%">
-                                            <button type="button" class="btn btn btn-info" style="width: 50%"> Edit</button>
-                                            <button type="button" onclick = "Confirmdelete()" class="btn btn-warning" style="width: 40%"> Delete</button>
+                                            <button type="button" onClick = "window.location = \'Edit-app.php?idApp='.$id.'\'" class="btn btn btn-info" style="width: 50%">Edit</button>
+                                            <button type="button" onClick = "deleteApp('.'\''.$id.'\''.')" class="btn btn-warning" style="width: 40%"> Delete</button>
                                         </div>
                                     </div>
                                 </div>
@@ -153,7 +159,7 @@ $stmt = $software->readfollowIdUser($_SESSION["id"]);
                     }
                     echo '</div>';
                     echo '<div class="flex-c-m flex-w w-full p-t-45">
-                    <a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
+                    <a href="My_upload.php?page='.($page + 1).'" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
                         Load More
                     </a>
                     </div>';
@@ -167,7 +173,31 @@ $stmt = $software->readfollowIdUser($_SESSION["id"]);
         </div>
     </div>
 </div>
-
 <?php
 include 'layout_foot.php';
 ?>
+<script>
+	function deleteApp(id) {
+        if(confirm("Are you really want delete this App!")){
+			var appid = id;
+            var datatoSend ='appid='+id;
+                $.ajax({
+                    type: 'POST',
+                    cache: false,
+                    url: "./database/delete_app.php",
+                    data: {id:appid},
+                    error: function(e) {
+                        var response = e.responseText;
+                        alert(response);
+                    },
+                    success:function(response){
+                        alert(response);
+						location.reload();
+                    },
+                    async: true
+                    // dataType: "json",
+                    // contentType: "application/json"
+                });
+        }
+    }
+	</script>
