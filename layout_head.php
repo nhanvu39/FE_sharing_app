@@ -44,7 +44,7 @@
 		<div class="container-menu-desktop">
 			<!-- Topbar -->
 			<div class="top-bar">
-				<div class="content-topbar flex-sb-m h-full container">
+				<div class="content-topbar flex-sb-m h-full container justify-content-end">
 					<div class="left-top-bar">
 						<!-- Free shipping for standard order over $50. <a href="#">Click here</a> -->
 					</div>
