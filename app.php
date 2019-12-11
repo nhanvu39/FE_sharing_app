@@ -42,7 +42,7 @@ include 'layout_head.php';
 						<div class="slick3 gallery-lb">
 							<?php
 							$stmt = $link->getDistinctVersion($id_product);
-							echo '<div class="item-slick3" data-thumb="images/' . $software->image . '">';
+							echo '<div class="item-slick3" data-thumb="' . $software->image . '">';
 							echo '<div class="wrap-pic-w pos-relative">';
 							echo '<h2>Choose your version</h2>';
 							echo '<br>';
@@ -60,28 +60,21 @@ include 'layout_head.php';
 								echo '<tr>';
 								echo '<td>' . $row["version"] . '</td>';
 								// Show button (link)
-								$windows = new Link($db);
-								$mac = new Link($db);
-								$linux = new Link($db);
-								$windows->getLinkDownload($row["version"], 'windows');
-								$mac->getLinkDownload($row["version"], 'mac');
-								$linux->getLinkDownload($row["version"], 'linux');
-
 								echo '<td>';
 								echo '<div class="btn-group btn-group-lg" style="margin-top: 35px;">';
-								echo '<button type="button" class="btn flex-c-m stext-101 cl0  bg1 bor1 hov-btn1 p-lr-15 trans-04" onClick="window.open(\'' . $windows->linkDownload . '\')">Window</button>';
+								echo '<button type="button" class="btn flex-c-m stext-101 cl0  bg1 bor1 hov-btn1 p-lr-15 trans-04" onClick="window.open(\'' . $link->linkWindows . '\')">Window</button>';
 								echo '</div>';
 								echo '</td>';
 
 								echo '<td>';
 								echo '<div class="btn-group btn-group-lg" style="margin-top: 35px;">';
-								echo '<button type="button" class="btn flex-c-m stext-101 cl0  bg1 bor1 hov-btn1 p-lr-15 trans-04" onClick="window.open(\'' . $mac->linkDownload . '\')">Mac</button>';
+								echo '<button type="button" class="btn flex-c-m stext-101 cl0  bg1 bor1 hov-btn1 p-lr-15 trans-04" onClick="window.open(\'' . $link->linkMac . '\')">Mac</button>';
 								echo '</div>';
 								echo '</td>';
 
 								echo '<td>';
 								echo '<div class="btn-group btn-group-lg" style="margin-top: 35px;">';
-								echo '<button type="button" class="btn flex-c-m stext-101 cl0  bg1 bor1 hov-btn1 p-lr-15 trans-04" onClick="window.open(\'' . $linux->linkDownload . '\')">Linux</button>';
+								echo '<button type="button" class="btn flex-c-m stext-101 cl0  bg1 bor1 hov-btn1 p-lr-15 trans-04" onClick="window.open(\'' . $link->linkLinux . '\')">Linux</button>';
 								echo '</div>';
 								echo '</td>';
 							}

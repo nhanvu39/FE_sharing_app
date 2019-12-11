@@ -1,5 +1,6 @@
 <?php
-class Software{
+class Software
+{
     private $conn;
     private $table_name = "software";
 
@@ -11,24 +12,26 @@ class Software{
     public $loc;
     public $image;
     public $Ltype;
+
     // public $timestamp;
 
     //constructor
-    public function __construct($db){
+    public function __construct($db)
+    {
         $this->conn = $db;
     }
 
     //read all products 
-    function read($from_record_num, $records_per_page){
+    function read($from_record_num, $records_per_page)
+    {
 
         //SELECT all product query
         $query = "SELECT 
                     id, name, description, kind, loc, image
                 FROM
-                    ".$this->table_name ."
-                LIMIT
-                    ?, ?";
-        
+                    " . $this->table_name . "
+                WHERE loc = 0";
+
         //prepare query statement
         $stmt = $this->conn->prepare($query);
 
@@ -38,15 +41,16 @@ class Software{
 
         //execute query
         $stmt->execute();
-        
+
         //return value
         return $stmt;
     }
 
-    function getKind($id){
+    function getKind($id)
+    {
         //select query
         $query = "SELECT kind
-                FROM ". $this->table_name ."
+                FROM " . $this->table_name . "
                 WHERE id = ?
             ";
         //prepare query statement
@@ -64,53 +68,69 @@ class Software{
         return $stmt;
     }
 
+    function getAllKind()
+    {
+        //select query
+        $query = "SELECT DISTINCT kind
+                FROM " . $this->table_name;
+        //prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        // execute query
+        $stmt->execute();
+
+        // return values
+        return $stmt;
+    }
+
     //used for paging products
-    public function count(){
+    public function count()
+    {
         //query to count all products records
-        $query = "SELECT count(*) FROM ". $this->table_name;
+        $query = "SELECT count(*) FROM " . $this->table_name;
 
         //prepare query statement
         $stmt = $this->conn->prepare($query);
-        
+
         //execute query 
         $stmt->execute();
 
         //get row value
         $rows = $stmt->fetch(PDO::FETCH_NUM);
-        
+
         //return count
         return $rows[0];
-
     }
-    
+
     // used when filling up the update product form
-    function readOne(){
-    
+    function readOne()
+    {
+
         // query to select single record
         $query = "SELECT
                     name, image, description
                 FROM
                     " . $this->table_name . "
                 WHERE
-                    id = ?
-                LIMIT
+                    id = " . $this->id .
+            " LIMIT
                     0,1";
-    
+
         // prepare query statement
-        $stmt = $this->conn->prepare( $query );
-    
+        $stmt = $this->conn->prepare($query);
+
         // sanitize
-        $this->id=htmlspecialchars(strip_tags($this->id));
-    
+        $this->id = htmlspecialchars(strip_tags($this->id));
+
         // bind product id value
         $stmt->bindParam(1, $this->id);
-    
+
         // execute query
         $stmt->execute();
-    
+
         // get row values
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    
+
         // assign retrieved row value to object properties
         $this->name = $row['name'];
         $this->image = $row['image'];
@@ -119,31 +139,31 @@ class Software{
 
     // read all product based on product ids included in the $ids variable
     // reference http://stackoverflow.com/a/10722827/827418
-    public function readByIds($ids){
-    
+    public function readByIds($ids)
+    {
+
         $ids_arr = str_repeat('?,', count($ids) - 1) . '?';
-        
+
         // query to select products
         $query = "SELECT id, name FROM " . $this->table_name . " WHERE id IN ({$ids_arr}) ORDER BY name";
-    
+
         // prepare query statement
         $stmt = $this->conn->prepare($query);
-    
+
         // execute query
         $stmt->execute($ids);
-    
+
         // return values from database
         return $stmt;
     }
 
-    public function readfollowIdUser($id, $number){
-        $query = "SELECT * FROM " . $this->table_name . " WHERE idUser=:id LIMIT :number" ;
+    public function readfollowIdUser($id, $number)
+    {
+        $query = "SELECT * FROM " . $this->table_name . " WHERE idUser=:id LIMIT :number";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindValue(':id', (int) $id); 
+        $stmt->bindValue(':id', (int) $id);
         $stmt->bindValue(':number', (int) $number, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt;
     }
 }
-
-?>
