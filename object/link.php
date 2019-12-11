@@ -6,10 +6,12 @@ class Link
 
     //properties
     public $id;
-    public $linkDownload;
     public $kind;
     public $idSoftware;
     public $version;
+    public $linkWindows;
+    public $linkLinux;
+    public $linkMac;
 
     //constructor
     public function __construct($db)
@@ -92,29 +94,13 @@ class Link
         return $stmt;
     }
 
-    //used for listing downloadLink
-    public function getLinkDownload($version, $kind)
-    {
-        //query to count all products records
-        $query = "SELECT linkDownload from link where version = '" . $version . "' and kind = '" . $kind . "' ";
-        //prepare query statement
-        $stmt = $this->conn->prepare($query);
-
-        //execute query 
-        $stmt->execute();
-
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        $this->linkDownload = $row["linkDownload"];
-    }
-
     // used when filling up the update product form
     function readOne()
     {
 
         // query to select single record
         $query = "SELECT
-                    linkDownload, kind, version
+                    linkWindows, linkLinux, linkMac, kind, version
                 FROM
                     " . $this->table_name . "
                 WHERE
@@ -138,7 +124,9 @@ class Link
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         // assign retrieved row value to object properties
-        $this->linkDownload = $row['linkDownload'];
+        $this->linkLinux = $row["linkLinux"];
+        $this->linkMac = $row["linkMac"];
+        $this->linkWindows = $row["linkWindows"];
         $this->kind = $row['kind'];
         $this->version = $row['version'];
     }

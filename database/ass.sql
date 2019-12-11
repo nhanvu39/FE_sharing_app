@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 10, 2019 lúc 11:34 AM
--- Phiên bản máy phục vụ: 10.4.8-MariaDB
--- Phiên bản PHP: 7.1.32
+-- Host: localhost
+-- Generation Time: Dec 11, 2019 at 03:54 PM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.1.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,51 +19,36 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `ass`
+-- Database: `test`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `link`
+-- Table structure for table `link`
 --
 
 CREATE TABLE `link` (
-  `id` int(11) NOT NULL,
-  `link1` varchar(1000) DEFAULT NULL,
-  `link2` varchar(1000) DEFAULT NULL,
-  `link3` varchar(1000) DEFAULT NULL,
-  `idSoftware` int(11) NOT NULL,
-  `version` varchar(50) NOT NULL
+  `id` int(10) NOT NULL,
+  `linkWindows` varchar(200) NOT NULL,
+  `linkLinux` varchar(200) NOT NULL,
+  `linkMac` varchar(200) NOT NULL,
+  `idSoftware` int(10) NOT NULL,
+  `version` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Đang đổ dữ liệu cho bảng `link`
+-- Dumping data for table `link`
 --
 
-INSERT INTO `link` (`id`, `link1`, `link2`, `link3`, `idSoftware`, `version`) VALUES
-(2, 'https://az764295.vo.msecnd.net/stable/f359dd69833dd8800b54d458f6d37ab7c78df520/VSCodeUserSetup-x64-1.40.2.exe', '', '', 2, '10.8'),
-(3, 'http://v236.x8top.net/2107tmp/cf/soft/2019/10/ba/5/adobe-illustrator_cc2020-2400330.exe', '', '', 3, 'CC 2020'),
-(8, 'https://officecdn.microsoft.com/db/492350F6-3A01-4F97-B9C0-C7C6DDF67D60/media/en-US/ProfessionalRetail.img', '', '', 8, '8.0'),
-(9, 'https://officecdn.microsoft.com/db/492350F6-3A01-4F97-B9C0-C7C6DDF67D60/media/en-US/ProfessionalRetail.img', '', '', 9, '8.0'),
-(10, 'https://officecdn.microsoft.com/db/492350F6-3A01-4F97-B9C0-C7C6DDF67D60/media/en-US/ProfessionalRetail.img', '', '', 10, '8.0'),
-(11, 'https://officecdn.microsoft.com/db/492350F6-3A01-4F97-B9C0-C7C6DDF67D60/media/en-US/ProfessionalRetail.img', '', '', 11, '8.0'),
-(12, 'https://officecdn.microsoft.com/db/492350F6-3A01-4F97-B9C0-C7C6DDF67D60/media/en-US/ProfessionalRetail.img', '', '', 12, '8.0'),
-(13, 'https://officecdn.microsoft.com/db/492350F6-3A01-4F97-B9C0-C7C6DDF67D60/media/en-US/ProfessionalRetail.img', '', '', 13, '8.0'),
-(17, 'https://www.webslesson.info/2017/07/live-add-edit-delete-datatables-records-using-php-ajax.html', 'https://www.youtube.com/watch?v=F3hTW9e20d8', '', 16, '9.6'),
-(20, 'http://demo.webslesson.info/live-datatables-insert-update-delete/', '', '', 2, '8.3'),
-(21, 'https://www.webslesson.info/2017/07/live-add-edit-delete-datatables-records-using-php-ajax.html', '', '', 2, '9.6'),
-(22, 'http://localhost:8080/phpmyadmin/sql.php?db=ass&table=link&pos=0', '', '', 2, '8.4'),
-(23, 'http://localhost:8080/phpmyadmin/sql.php?db=ass&table=link&pos=0', '', '', 2, '7.6'),
-(24, 'http://localhost:8080/phpmyadmin/sql.php?db=ass&table=link&pos=0', '', '', 2, '8.5'),
-(25, 'http://localhost:8080/phpmyadmin/sql.php?db=ass&table=link&pos=0', '', '', 2, '9.4'),
-(26, 'http://localhost:8080/phpmyadmin/sql.php?db=ass&table=link&pos', 'http://localhost:8080/phpmyadmin/sql.php?server=1&db=ass&table=link&pos=0', '', 2, '8.1'),
-(34, 'https://az764295.vo.msecnd.net/stable/f359dd69833dd8800b54d458f6d37ab7c78df520/VSCodeUserSetup-x64-1.40.2.exe', '', '', 19, '9.4');
+INSERT INTO `link` (`id`, `linkWindows`, `linkLinux`, `linkMac`, `idSoftware`, `version`) VALUES
+(1, 'https://www.slimjet.com/chrome/download-chrome.php?file=files%2F78.0.3904.97%2FChromeStandaloneSetup64.exe', 'https://www.slimjet.com/chrome/download-chrome.php?file=files%2F78.0.3904.97%2Fgoogle-chrome-stable_current_amd64.deb', 'https://www.slimjet.com/chrome/download-chrome.php?file=files%2F78.0.3904.97%2Fgooglechrome.dmg', 1, '78.0.3904.97'),
+(2, 'https://www.slimjet.com/chrome/download-chrome.php?file=files%2F76.0.3809.100%2FChromeStandaloneSetup64.exe', 'https://www.slimjet.com/chrome/download-chrome.php?file=files%2F76.0.3809.100%2Fgoogle-chrome-stable_current_amd64.deb', 'https://www.slimjet.com/chrome/download-chrome.php?file=files%2F76.0.3809.100%2Fgooglechrome.dmg', 1, '76.0.3809.100');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `software`
+-- Table structure for table `software`
 --
 
 CREATE TABLE `software` (
@@ -78,20 +63,17 @@ CREATE TABLE `software` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Đang đổ dữ liệu cho bảng `software`
+-- Dumping data for table `software`
 --
 
 INSERT INTO `software` (`id`, `idUser`, `name`, `description`, `Ltype`, `kind`, `loc`, `image`) VALUES
-(2, 3, 'Visual', 'Best edit of me', 'Freeware', 'Utilities', 0, 'icon_app/browser_chrome.png'),
-(3, 3, 'Ai', 'Photoshop :))', 'Trial', 'Utilities', 0, 'icon_app/office.png'),
-(8, 3, 'Office', 'Word, Excel, Power Point,...', 'Commercial', 'Business', 0, 'icon_app/office_logo.png'),
-(16, 3, 'Zalo', 'Social Network', 'Commercial', 'Social', 0, 'icon_app/zalo.jpg'),
-(19, 3, 'Firefox', 'Firefox', 'Freeware', 'Internet', 0, 'icon_app/firefox1.png');
+(1, 2, 'Google Chrome', 'Google Chrome is a cross-platform web browser developed by Google. It was first released in 2008 for Microsoft Windows, and was later ported to Linux, macOS, iOS, and Android. The browser is also the main component of Chrome OS, where it serves as the platform for web apps.', 'Demo', 'Browser', 0, 'images/browser_chrome.png'),
+(22, 2, 'Zalo', 'Zalo is a free message and call application on mobile released on 8 August 2012 for iOS, Android, Windows Phone and Nokia Java. Free messaging (with sharing emotion, images and video) Make free calls (voice and video calls) Share status (comment is only viewable by common friends comments) Make friend Highlights Modify Fast, stable messaging on all 3G, 2.5G, 3G, 4G and WiFi bands. Voice messaging feature in 5 minutes. \"Diary\" function for users to post emotions and upload photos. High security At the end of May, Vietnam Television (VTV) used Zalo as a bridge for the community to share their feelings and thoughts about the island and send messages of encouragement to the people and Soldiers are on duty in Changsha.', 'Freeware', 'Social', 0, 'images/zalo.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -101,70 +83,77 @@ CREATE TABLE `users` (
   `firstName` varchar(255) NOT NULL,
   `lastName` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `loc` tinyint(1) NOT NULL
+  `loc` tinyint(1) NOT NULL,
+  `isAdmin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Đang đổ dữ liệu cho bảng `users`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `userName`, `password`, `firstName`, `lastName`, `email`, `loc`) VALUES
-(1, 'lasdtiger', '123456', 'value-4', 'value-5', '', 0),
-(2, 'nhanvu', '073deebe90916d67db7a2e3ef96c0989', 'VÅ©', 'Tráº§n', 'nhanvu1998@gmail.com', 0),
-(3, 'vanson', 'f43939ab30fed8bf0189237677d9076c', 'Thor', 'Jim', 'oncepice1@gmail.com', 0);
+INSERT INTO `users` (`id`, `userName`, `password`, `firstName`, `lastName`, `email`, `loc`, `isAdmin`) VALUES
+(1, 'lasdtiger', '123456', 'value-4', 'value-5', '', 0, 0),
+(2, 'nhanvu', '073deebe90916d67db7a2e3ef96c0989', 'VÅ©', 'Tráº§n NhÃ¢n', 'nhanvu1998@gmail.com', 0, 1),
+(3, 'vanson', 'f43939ab30fed8bf0189237677d9076c', 'Thor', 'Jim', 'oncepice1@gmail.com', 0, 0);
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `link`
+-- Indexes for table `link`
 --
 ALTER TABLE `link`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idSoftware` (`idSoftware`);
 
 --
--- Chỉ mục cho bảng `software`
+-- Indexes for table `software`
 --
 ALTER TABLE `software`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idUser` (`idUser`);
 
 --
--- Chỉ mục cho bảng `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `link`
+-- AUTO_INCREMENT for table `link`
 --
 ALTER TABLE `link`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT cho bảng `software`
+-- AUTO_INCREMENT for table `software`
 --
 ALTER TABLE `software`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT cho bảng `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `software`
+-- Constraints for table `link`
+--
+ALTER TABLE `link`
+  ADD CONSTRAINT `link_ibfk_1` FOREIGN KEY (`idSoftware`) REFERENCES `ass`.`software` (`id`);
+
+--
+-- Constraints for table `software`
 --
 ALTER TABLE `software`
   ADD CONSTRAINT `software_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`);
