@@ -2,10 +2,10 @@
 -- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 11, 2019 at 02:56 PM
+-- Host: localhost
+-- Generation Time: Dec 11, 2019 at 03:54 PM
 -- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- PHP Version: 7.1.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ass`
+-- Database: `test`
 --
 
 -- --------------------------------------------------------
@@ -29,20 +29,21 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `link` (
-  `id` int(11) NOT NULL,
-  `link1` varchar(1000) DEFAULT NULL,
-  `link2` varchar(1000) DEFAULT NULL,
-  `link3` varchar(1000) DEFAULT NULL,
-  `idSoftware` int(11) NOT NULL,
-  `version` varchar(50) NOT NULL
+  `id` int(10) NOT NULL,
+  `linkWindows` varchar(200) NOT NULL,
+  `linkLinux` varchar(200) NOT NULL,
+  `linkMac` varchar(200) NOT NULL,
+  `idSoftware` int(10) NOT NULL,
+  `version` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `link`
 --
 
-INSERT INTO `link` (`id`, `link1`, `link2`, `link3`, `idSoftware`, `version`) VALUES
-(35, 'https://www.google.com/amp/s/amp.24h.com.vn/bong-da-c48.html', 'https://www.google.com/amp/s/amp.24h.com.vn/bong-da-c48.html', 'https://www.google.com/amp/s/amp.24h.com.vn/bong-da-c48.html', 20, '1.0.1');
+INSERT INTO `link` (`id`, `linkWindows`, `linkLinux`, `linkMac`, `idSoftware`, `version`) VALUES
+(1, 'https://www.slimjet.com/chrome/download-chrome.php?file=files%2F78.0.3904.97%2FChromeStandaloneSetup64.exe', 'https://www.slimjet.com/chrome/download-chrome.php?file=files%2F78.0.3904.97%2Fgoogle-chrome-stable_current_amd64.deb', 'https://www.slimjet.com/chrome/download-chrome.php?file=files%2F78.0.3904.97%2Fgooglechrome.dmg', 1, '78.0.3904.97'),
+(2, 'https://www.slimjet.com/chrome/download-chrome.php?file=files%2F76.0.3809.100%2FChromeStandaloneSetup64.exe', 'https://www.slimjet.com/chrome/download-chrome.php?file=files%2F76.0.3809.100%2Fgoogle-chrome-stable_current_amd64.deb', 'https://www.slimjet.com/chrome/download-chrome.php?file=files%2F76.0.3809.100%2Fgooglechrome.dmg', 1, '76.0.3809.100');
 
 -- --------------------------------------------------------
 
@@ -66,7 +67,8 @@ CREATE TABLE `software` (
 --
 
 INSERT INTO `software` (`id`, `idUser`, `name`, `description`, `Ltype`, `kind`, `loc`, `image`) VALUES
-(20, 2, 'chrome', 'gÃ¡wwwcca', 'Demo', 'Social', 0, 'images/bk.png');
+(1, 2, 'Google Chrome', 'Google Chrome is a cross-platform web browser developed by Google. It was first released in 2008 for Microsoft Windows, and was later ported to Linux, macOS, iOS, and Android. The browser is also the main component of Chrome OS, where it serves as the platform for web apps.', 'Demo', 'Browser', 0, 'images/browser_chrome.png'),
+(22, 2, 'Zalo', 'Zalo is a free message and call application on mobile released on 8 August 2012 for iOS, Android, Windows Phone and Nokia Java. Free messaging (with sharing emotion, images and video) Make free calls (voice and video calls) Share status (comment is only viewable by common friends comments) Make friend Highlights Modify Fast, stable messaging on all 3G, 2.5G, 3G, 4G and WiFi bands. Voice messaging feature in 5 minutes. \"Diary\" function for users to post emotions and upload photos. High security At the end of May, Vietnam Television (VTV) used Zalo as a bridge for the community to share their feelings and thoughts about the island and send messages of encouragement to the people and Soldiers are on duty in Changsha.', 'Freeware', 'Social', 0, 'images/zalo.jpg');
 
 -- --------------------------------------------------------
 
@@ -126,13 +128,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `link`
 --
 ALTER TABLE `link`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `software`
 --
 ALTER TABLE `software`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -143,6 +145,12 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `link`
+--
+ALTER TABLE `link`
+  ADD CONSTRAINT `link_ibfk_1` FOREIGN KEY (`idSoftware`) REFERENCES `ass`.`software` (`id`);
 
 --
 -- Constraints for table `software`

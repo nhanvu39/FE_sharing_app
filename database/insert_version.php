@@ -30,7 +30,7 @@
         }
 
         if($test_save){
-            $query = "INSERT INTO link(link1, link2, link3,idSoftware, version) VALUES('$link1', '$link2', '$link3', '$idApp', '$version')";
+            $query = "INSERT INTO link(linkWindows, linkLinux, linkMac,idSoftware, version) VALUES('$link1', '$link2', '$link3', '$idApp', '$version')";
             if(mysqli_query($connect, $query)){
                 $statusMsgType = 'alert alert-success';
 				$statusMsg = 'Congratulation. Insert New version successful.';

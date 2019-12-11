@@ -53,7 +53,7 @@
 		}
 
 		$Image_name =  $_FILES['file']['name'];
-		$target_dir = "icon_app/";
+		$target_dir = "images/";
 		$target_file = null;
 		// $image = null;
 		if($Image_name != '' and !$check_error){
