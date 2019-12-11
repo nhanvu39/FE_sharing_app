@@ -4,25 +4,25 @@
         $version = $_POST["version"];
         $idApp = $_POST["idApp"];
         $test_save = true;
-        $link1 = $_POST["link1"];
-        $link2 = $_POST["link2"];
-        $link3 = $_POST["link3"];
-        if($link3){
-            if (filter_var($link3, FILTER_VALIDATE_URL) === FALSE) {
+        $linkWindows = $_POST["linkWindows"];
+        $linkLinux = $_POST["linkLinux"];
+        $linkMac = $_POST["linkMac"];
+        if($linkMac){
+            if (filter_var($linkMac, FILTER_VALIDATE_URL) === FALSE) {
                 $statusMsgType = 'alert alert-danger';
                 $statusMsg = 'Link download for MacOS is not valid format!';
                 $test_save = false;
             }
         }
-        if($link2){
-            if (filter_var($link2, FILTER_VALIDATE_URL) === FALSE) {
+        if($linkLinux){
+            if (filter_var($linkLinux, FILTER_VALIDATE_URL) === FALSE) {
                 $statusMsgType = 'alert alert-danger';
                 $statusMsg = 'Link download for Linux is not valid format!';
                 $test_save = false;
             }
         }
-        if($link1){
-            if (filter_var($link1, FILTER_VALIDATE_URL) === FALSE) {
+        if($linkWindows){
+            if (filter_var($linkWindows, FILTER_VALIDATE_URL) === FALSE) {
                 $statusMsgType = 'alert alert-danger';
                 $statusMsg = 'Link download for Windown is not valid format!';
                 $test_save = false;
@@ -30,7 +30,7 @@
         }
 
         if($test_save){
-            $query = "INSERT INTO link(link1, link2, link3,idSoftware, version) VALUES('$link1', '$link2', '$link3', '$idApp', '$version')";
+            $query = "INSERT INTO link(linkWindows, linkLinux, linkMac,idSoftware, version) VALUES('$linkWindows', '$linkLinux', '$linkMac', '$idApp', '$version')";
             if(mysqli_query($connect, $query)){
                 $statusMsgType = 'alert alert-success';
 				$statusMsg = 'Congratulation. Insert New version successful.';

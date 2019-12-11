@@ -2,7 +2,7 @@
     //fetch.php
     if(isset($_POST["idApp"])){
         $connect = mysqli_connect("localhost", "root", "", "ass");
-        $columns = array('version', 'link1', 'link2','link3');
+        $columns = array('version', 'linkWindows', 'linkLinux','linkMac');
         $id = $_POST["idApp"];
         $query = "SELECT * FROM link WHERE idSoftware='$id' ";
 
@@ -37,9 +37,9 @@
         {
             $sub_array = array();
             $sub_array[] = '<div contenteditable class="update" data-id="'.$row["id"].'" data-column="version">' . $row["version"] . '</div>';
-            $sub_array[] = '<div contenteditable class="update" data-id="'.$row["id"].'" data-column="link1">' . $row["link1"] . '</div>';
-            $sub_array[] = '<div contenteditable class="update" data-id="'.$row["id"].'" data-column="link2">' . $row["link2"] . '</div>';
-            $sub_array[] = '<div contenteditable class="update" data-id="'.$row["id"].'" data-column="link3">' . $row["link3"] . '</div>';
+            $sub_array[] = '<div contenteditable class="update" data-id="'.$row["id"].'" data-column="linkWindows">' . $row["linkWindows"] . '</div>';
+            $sub_array[] = '<div contenteditable class="update" data-id="'.$row["id"].'" data-column="linkLinux">' . $row["linkLinux"] . '</div>';
+            $sub_array[] = '<div contenteditable class="update" data-id="'.$row["id"].'" data-column="linkMac">' . $row["linkMac"] . '</div>';
             $sub_array[] = '<button type="button" name="delete" class="btn btn-danger btn-xs delete" id="'.$row["id"].'">Delete</button>';
             $data[] = $sub_array;
         }

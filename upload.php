@@ -107,7 +107,7 @@
 				}
 				else{
 					$idSoftware = $conn->lastInsertId();
-					$query  = 	"INSERT INTO `link`( `link1`, `link2`, `link3`, `idSoftware`, `version`) VALUES  (?,?,?,?,?) ";
+					$query  = 	"INSERT INTO `link`( `linkWindows`, `linkLinux`, `linkMac`, `idSoftware`, `version`) VALUES  (?,?,?,?,?) ";
 					$array = array($Link1, $Link2, $Link3, $idSoftware, $Version);
 					$stmt = $conn->prepare($query);
 					$stmt->execute($array);

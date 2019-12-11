@@ -372,16 +372,16 @@
   
   $(document).on('click', '#insert', function(){
    var version = $('#data1').text();
-   var link1 = $('#data2').text();
-   var link2 = $('#data3').text();
-   var link3 = $('#data4').text();
+   var linkWindows = $('#data2').text();
+   var linkLinux = $('#data3').text();
+   var linkMac = $('#data4').text();
    var id = <?php echo $_REQUEST['idApp']?>;
-   if(version != '' && (link1 != '' || link2 != '' || link3!=''))
+   if(version != '' && (linkWindows != '' || linkLinux != '' || linkMac!=''))
    {
     $.ajax({
      url:"./database/insert_version.php",
      method:"POST",
-     data:{idApp:id,version:version, link1:link1, link2:link2, link3:link3},
+     data:{idApp:id,version:version, linkWindows:linkWindows, linkLinux:linkLinux, linkMac:linkMac},
      success:function(data)
      {
       var response = JSON.parse(data);
