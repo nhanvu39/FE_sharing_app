@@ -35,22 +35,10 @@
 		$Description = $_POST["Description"];
 
 		$Category = $_POST["Category"];
-		if(!$check_error){
-			if($Category!= "Business" and  $Category != "Communications" and $Category!= "Desktop" and $Category != "Education" and $Category!= "Games" and $Category!="Graphics" and $Category!= "Internet" and $Category != "Life" and $Category!= "Media" and $Category!="Utilities" and $Category != "Security"){
-				$statusMsgType = 'alert alert-danger';
-				$statusMsg = 'Please select Category from options';
-				$check_error = true;
-			}
-		}
+		
 
 		$Ltype = $_POST["Ltype"];
-		if(!$check_error){
-			if($Ltype!= "Adware" and  $Ltype != "Commercial" and $Ltype!= "Demo" and $Ltype != "Freeware" and $Ltype!= "Open Source" and $Ltype!="Proprietary" and $Ltype!= "Shareware" and $Ltype != "Trial"){
-				$statusMsgType = 'alert alert-danger';
-				$statusMsg = 'Please select License Type from options';
-				$check_error = true;
-			}
-		}
+		
 
 		$Image_name =  $_FILES['file']['name'];
 		$target_dir = "images/";

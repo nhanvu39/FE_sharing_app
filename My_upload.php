@@ -85,7 +85,7 @@ $stmt = $software->readfollowIdUser($_SESSION["id"], $record_num);
                                 <div class="block2-txt flex-w flex-t p-t-14">
                                     <div class="block2-txt-child1 flex-col-l">
                                         <div style="display: flex; flex-wrap: wrap; justify-content: space-between; width: 100%">
-                                            <button type="button" onClick = "window.location = \'Edit-app.php?idApp=' . $id .'\" class="btn btn btn-info" style="width: 50%">Edit</button>
+                                            <button type="button" onClick = "window.location = \'Edit-app.php?idApp=' . $id . '\'" class="btn btn btn-info" style="width: 50%">Edit</button>
                                             <button type="button" onClick = "deleteApp(' . '\'' . $id . '\'' . ')" class="btn btn-warning" style="width: 40%"> Delete</button>
                                         </div>
                                     </div>

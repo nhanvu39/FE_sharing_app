@@ -14,7 +14,7 @@ include 'layout_head.php';
 <?php
 //for pagination purposes
 $page = isset($_GET['page']) ? $_GET['page'] : 1; //page is current page, if there's nothing set, default is 1
-$records_per_page = 8; //set records or row of data per page
+$records_per_page = 4; //set records or row of data per page
 $from_record_num = ($records_per_page * $page) - $records_per_page; //calculate for the query LIMIT clause
 
 

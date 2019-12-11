@@ -13,22 +13,10 @@
 		$Description = $_POST["Description"];
 
 		$Category = $_POST["Category"];
-		if(!$check_error){
-			if($Category!= "Media" and  $Category != "Business" and $Category!= "Education" and $Category != "Games" and $Category!= "Graphics" and $Category!="Internet" and $Category!= "Social" and $Category != "Utilities" and $Category != "Security"){
-				$statusMsgType = 'alert alert-danger';
-				$statusMsg = 'Please select Category from options';
-				$check_error = true;
-			}
-		}
+		
 
 		$Ltype = $_POST["Ltype"];
-		if(!$check_error){
-			if($Ltype!= "Adware" and  $Ltype != "Commercial" and $Ltype!= "Demo" and $Ltype != "Freeware" and $Ltype!= "Open Source" and $Ltype!="Proprietary" and $Ltype!= "Shareware" and $Ltype != "Trial"){
-				$statusMsgType = 'alert alert-danger';
-				$statusMsg = 'Please select License Type from options';
-				$check_error = true;
-			}
-		}
+		
 
 		$Image_name =  $_FILES['file']['name'];
 		$target_dir = "images/";
@@ -107,7 +95,7 @@
 				}
 				else{
 					$idSoftware = $conn->lastInsertId();
-					$query  = 	"INSERT INTO `link`( `link1`, `link2`, `link3`, `idSoftware`, `version`) VALUES  (?,?,?,?,?) ";
+					$query  = 	"INSERT INTO `link`( `linkWindows`, `linkLinux`, `linkMac`, `idSoftware`, `version`) VALUES  (?,?,?,?,?) ";
 					$array = array($Link1, $Link2, $Link3, $idSoftware, $Version);
 					$stmt = $conn->prepare($query);
 					$stmt->execute($array);
