@@ -26,7 +26,7 @@ $stmt = $software->readfollowIdUser($_SESSION["id"], $record_num);
                 <?php
                 $stmt_allKind = $software->getAllKind();
                 while ($row = $stmt_allKind->fetch(PDO::FETCH_ASSOC)) {
-                    echo '<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".' . strtoupper($row["kind"]) . '">';
+                    echo '<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".' . $row["kind"] . '">';
                     echo $row["kind"];
                     echo '</button>';
                 }
