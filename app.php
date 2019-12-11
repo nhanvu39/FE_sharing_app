@@ -41,6 +41,7 @@ include 'layout_head.php';
 
 						<div class="slick3 gallery-lb">
 							<?php
+							
 							$stmt = $link->getDistinctVersion($id_product);
 							echo '<div class="item-slick3" data-thumb="' . $software->image . '">';
 							echo '<div class="wrap-pic-w pos-relative">';
@@ -54,7 +55,7 @@ include 'layout_head.php';
 							echo '<th></th>';
 							echo '<th></th>';
 							echo '</tr>';
-
+							if (isset($_SESSION['id'])){
 							// Show version
 							while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 								echo '<tr>';
@@ -78,7 +79,7 @@ include 'layout_head.php';
 								echo '</div>';
 								echo '</td>';
 							}
-
+						}
 
 
 							echo '</tr>';
@@ -88,7 +89,7 @@ include 'layout_head.php';
 							echo '</div>';
 							echo '</div>';
 							echo '</div>';
-
+						
 							?>
 
 						</div>
