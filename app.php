@@ -69,7 +69,10 @@ include 'layout_head.php';
 
 								echo '<td>';
 								echo '<div class="btn-group btn-group-lg" style="margin-top: 35px;">';
-								echo '<button type="button" class="btn flex-c-m stext-101 cl0  bg1 bor1 hov-btn1 p-lr-15 trans-04" onClick="window.open(\'' . $link->linkMac . '\')">Mac</button>';
+								// echo $link->linkMac;
+								// if (strlen($link->linkMac) > 0 ){
+								echo '<button type="button" class="btn flex-c-m stext-101 cl0  bg1 bor1 hov-btn1 p-lr-15 trans-04" onClick="window.open(\'' . $link->linkMac . '\')"> Mac</button>';
+								// }
 								echo '</div>';
 								echo '</td>';
 

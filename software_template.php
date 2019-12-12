@@ -11,6 +11,7 @@ $db = $database->getConnection();
 $software = new Software($db);
 $link = new Link($db);
 
+
 ?>
 <!-- Software -->
 <div class="bg0 m-t-23 p-b-140 p-all-50">
@@ -45,11 +46,12 @@ $link = new Link($db);
 			<!-- Search product -->
 			<div class="dis-none panel-search w-full p-t-10 p-b-15">
 				<div class="bor8 dis-flex p-l-15">
+				<form action="show_app.php" method="post">
+					<input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="search-product" placeholder="Search">
 					<button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
 						<i class="zmdi zmdi-search"></i>
 					</button>
-
-					<input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="search-product" placeholder="Search">
+				</form>
 				</div>
 			</div>
 		</div>
@@ -71,9 +73,9 @@ $link = new Link($db);
 				echo '<img src="' . $image . '" alt="IMG-PRODUCT">';
 				echo '</a>';
 				echo '';
-				echo '<a href="#"' .  ' class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">';
-				echo 'Quick View';
-				echo '</a>';
+				// echo '<a href="#"' .  ' class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">';
+				// echo 'Quick View';
+				// echo '</a>';
 				echo '</div>';
 				echo '';
 				echo '<div class="block2-txt flex-w flex-t p-t-14">';

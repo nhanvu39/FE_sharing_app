@@ -19,11 +19,18 @@ $from_record_num = ($records_per_page * $page) - $records_per_page; //calculate 
 
 
 //read all products in the database
-$stmt = $software->read($from_record_num, $records_per_page);
+
+
+if(isset($_POST['search-product'])){
+	// trả biến $stmt = search những cái có tên giống  $_POST['search-product']
+
+}
+else {
+	$stmt = $software->read($from_record_num, $records_per_page);
 
 //count number of retrieved products
-$num = $stmt->rowCount();
-
+	$num = $stmt->rowCount();
+}
 //if products retrieved more than zero
 if ($num > 0) {
 	//needed for paging
