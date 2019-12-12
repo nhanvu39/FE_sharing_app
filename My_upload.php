@@ -72,7 +72,7 @@ $stmt = $software->readfollowIdUser($_SESSION["id"], $record_num);
                 $name = $row["name"];
                 $id = $row["id"];
                 // $ltype = $row["Ltype"];
-                echo '<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item ' . $kind . '">
+                echo '<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item ' . strtoupper($kind) . '">
                             <div class="block2">
                                 <div class="block2-pic hov-img0">
                                         <img src="' . $image . '" alt="IMG-PRODUCT" class = "icon_app">
