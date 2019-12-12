@@ -46,6 +46,23 @@ class Software
         return $stmt;
     }
 
+    // For search function
+    function search($sample)
+    {
+
+        //SELECT all product query
+        $query = "SELECT * FROM software WHERE name LIKE '%" . $sample . "%' and loc = 0";
+
+        //prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        //execute query
+        $stmt->execute();
+        // echo $query;
+        //return value
+        return $stmt;
+    }
+
     function getKind($id)
     {
         //select query

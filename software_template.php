@@ -25,8 +25,8 @@ $link = new Link($db);
 				</button>
 				<?php
 				$stmt_allKind = $software->getAllKind();
-				while ($row = $stmt_allKind->fetch(PDO::FETCH_ASSOC)) { 
-					echo '<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".' . strtoupper($row["kind"]) . '">';
+				while ($row = $stmt_allKind->fetch(PDO::FETCH_ASSOC)) {
+					echo '<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".' . $row["kind"] . '">';
 					echo $row["kind"];
 					echo '</button>';
 				}
@@ -34,26 +34,27 @@ $link = new Link($db);
 			</div>
 
 			<!-- Filter -->
-			<div class="flex-w flex-c-m m-tb-10">
+			<!-- <div class="flex-w flex-c-m m-tb-10">
 
 				<div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
 					<i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
 					<i class="icon-close-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
 					Search
 				</div>
-			</div>
+			</div> -->
 
 			<!-- Search product -->
-			<div class="dis-none panel-search w-full p-t-10 p-b-15">
+			<!-- <div class="dis-none panel-search w-full p-t-10 p-b-15">
 				<div class="bor8 dis-flex p-l-15">
-				<form action="show_app.php" method="post">
-					<input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="search-product" placeholder="Search">
-					<button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
-						<i class="zmdi zmdi-search"></i>
-					</button>
-				</form>
+					<form action="show_app.php" method="POST">
+						<input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="search-product" placeholder="Search">
+						<button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
+							<i class="zmdi zmdi-search"></i>
+						</button>
+					</form>
 				</div>
-			</div>
+			</div> -->
+
 		</div>
 
 
@@ -65,7 +66,7 @@ $link = new Link($db);
 				$image = $row["image"];
 				$name = $row["name"];
 				$id = $row["id"];
-				echo '<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item ' . strtoupper($kind) . '">';
+				echo '<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item ' . $kind . '">';
 				echo '<!-- Block2 -->';
 				echo '<div class="block2">';
 				echo '<div class="block2-pic hov-img0">';
@@ -104,10 +105,10 @@ $link = new Link($db);
 		</div>
 
 		<!-- Load more -->
-		<div class="flex-c-m flex-w w-full p-t-45">
+		<!-- <div class="flex-c-m flex-w w-full p-t-45">
 			<a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
 				Load More
 			</a>
-		</div>
+		</div> -->
 	</div>
 </div>
