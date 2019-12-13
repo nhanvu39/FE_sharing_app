@@ -6,7 +6,7 @@ class Link
 
     //properties
     public $id;
-    public $kind;
+    // public $kind;
     public $idSoftware;
     public $version;
     public $linkWindows;
@@ -95,30 +95,31 @@ class Link
     }
 
     // used when filling up the update product form
-    function readOne()
+    function readOne($idSoft, $version)
     {
 
         // query to select single record
         $query = "SELECT
-                    linkWindows, linkLinux, linkMac, kind, version
+                    linkWindows, linkLinux, linkMac, version
                 FROM
                     " . $this->table_name . "
                 WHERE
-                    id = ?
-                LIMIT
-                    0,1";
+                    idSoftware = $idSoft and version = '$version'
+             ";
 
         // prepare query statement
         $stmt = $this->conn->prepare($query);
 
         // sanitize
-        $this->id = htmlspecialchars(strip_tags($this->id));
+        // $this->id = htmlspecialchars(strip_tags($this->id));
 
         // bind product id value
-        $stmt->bindParam(1, $this->id);
+        // $stmt->bindParam(1, $idSoft);
+        // $stmt->bindParam(1, $version);
 
         // execute query
         $stmt->execute();
+        // echo $query;
 
         // get row values
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -127,7 +128,7 @@ class Link
         $this->linkLinux = $row["linkLinux"];
         $this->linkMac = $row["linkMac"];
         $this->linkWindows = $row["linkWindows"];
-        $this->kind = $row['kind'];
+        // $this->kind = $row['kind'];
         $this->version = $row['version'];
     }
 }

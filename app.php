@@ -10,12 +10,15 @@ $db = $database->getConnection();
 // initialize objects
 $software = new Software($db);
 $link = new Link($db);
+// $link->readOne();
+echo $link->linkWindows;
 
 // get ID of the product to be edited
 $id_product = isset($_GET['id']) ? $_GET['id'] : die('ERROR: missing ID.');
 
 // set the id as product id property
 $software->id = $id_product;
+// $link->idSoftware =$id_product;
 
 // to read single record product
 $software->readOne();
@@ -58,6 +61,9 @@ include 'layout_head.php';
 							if (isset($_SESSION['id'])){
 							// Show version
 							while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+								$link = new Link($db);
+								$link->readOne($id_product, $row["version"]);
+
 								echo '<tr>';
 								echo '<td>' . $row["version"] . '</td>';
 								// Show button (link)
